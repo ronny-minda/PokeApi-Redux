@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import { guardarinfo } from './store/slice/pokeData';
 import axios from 'axios';
+import { motion } from 'framer-motion';
 
 import Section from './styles/App';
 
@@ -41,6 +42,10 @@ function App() {
     buscarPokemon(1)
   }, [])
 
+  const Luz = [
+    ['#09FF0022', '#09FF00','#09FF0022', '#09FF00','#09FF0022', '#09FF00','#09FF0022', '#09FF00','#09FF0022', '#09FF00','#09FF0022', '#09FF00'],
+    ['0px 0px 61px 20px #09FF0022','0px 0px 61px 20px #09FF00','0px 0px 61px 20px #09FF0022','0px 0px 61px 20px #09FF00','0px 0px 61px 20px #09FF0022','0px 0px 61px 20px #09FF00','0px 0px 61px 20px #09FF0022','0px 0px 61px 20px #09FF00','0px 0px 61px 20px #09FF0022','0px 0px 61px 20px #09FF00','0px 0px 61px 20px #09FF0022','0px 0px 61px 20px #09FF00',]
+  ]
 
 
   return (
@@ -49,11 +54,19 @@ function App() {
         
         <div className='contenedor'>
 
-          <div className='luz'></div>
+          <motion.div
+            animate={{ background: Luz[0], boxShadow: Luz[1] }}
+            transition={{ ease: "easeOut", duration: 1}}
+            className='luz'
+          ></motion.div>
           
           <section className="pantalla">
             <div className='contePantalla'>
-              <div className='contenido'>
+              <motion.div 
+                animate={{ opacity: ['0','1']}}
+                transition={{ duration: 0.2, delay: 1  }}
+                className='contenido'
+              >
 
                 {
                   listo && 
@@ -204,7 +217,7 @@ function App() {
                   </>
                 }
 
-              </div>
+              </motion.div>
             </div>
           </section>
 

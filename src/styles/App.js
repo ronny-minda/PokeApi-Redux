@@ -3,12 +3,21 @@
 import styled from 'styled-components';
 
 const Section = styled.section`
-  background-color: red;
+  /* background-color: red; */
   height: 100vh;
   width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
+  transform: scale(0.9);
+
+  @media (max-width: 650px) {
+    transform: scale(0.7);
+  }
+  @media (max-width: 450px) {
+    transform: scale(0.6);
+  }
+
 
   .contenedor {
     height: 900px;
@@ -18,11 +27,12 @@ const Section = styled.section`
     border-radius: 10px;
     position: absolute;
     
+    
     .luz {
       height: 40px;
       width: 20px;
       background-color: #09FF00;
-      box-shadow: 0px 0px 61px 20px rgba(0,255,25,0.75);
+      box-shadow: 0px 0px 61px 20px #09FF00;
       position: absolute;
       right: 0;
       top: 70px;
@@ -34,12 +44,14 @@ const Section = styled.section`
       /* background-color: blue; */
       display: flex;
       justify-content: center;
+      
 
       .contePantalla {
         border-radius: 0 0 7px 7px;
         border: 40px solid #1d1d1e;
         height: 93%;
         width: 80%;
+        box-shadow:  5px 5px 10px #2e2c2c, -5px 0px 10px #b6b0ae;
         /* background-color: black; */
 
         .contenido {
@@ -48,6 +60,8 @@ const Section = styled.section`
           background-color: #fff;
           position: relative;
           z-index: 50;
+
+          opacity: 0;
           
           img {
             height: 80%;
