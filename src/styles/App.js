@@ -11,11 +11,22 @@ const Section = styled.section`
   align-items: center;
 
   .contenedor {
-    height: 95%;
+    height: 900px;
     width: 500px;
     background-color: #726e6d;
     border-radius: 7px;
     border-radius: 10px;
+    position: absolute;
+    
+    .luz {
+      height: 40px;
+      width: 20px;
+      background-color: #09FF00;
+      box-shadow: 0px 0px 61px 20px rgba(0,255,25,0.75);
+      position: absolute;
+      right: 0;
+      top: 70px;
+    }
 
     .pantalla {
       height: 45%;
@@ -34,7 +45,102 @@ const Section = styled.section`
         .contenido {
           height: 100%;
           width: 100%;
-          background-color: aqua;
+          background-color: #fff;
+          position: relative;
+          z-index: 50;
+          
+          img {
+            height: 80%;
+            width: 80%;
+            position: absolute;
+            top: 0;
+            right: 0;
+          }
+          .onteInfo {
+            width: 0;
+            height: 0;
+            border: 150px solid transparent;
+            border-left: 100px solid red;
+            border-bottom: 100px solid red;
+            position: absolute;
+            bottom: 0;
+          }
+          .infoFinal {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            p {
+              color: #fff;
+              font-size: 40px;
+            }
+          }
+          @keyframes pulse {
+            0% {
+              background-color: #24842777;
+            }
+            50% {
+              background-color: #28912477;
+            }
+            100% {
+              background-color: #24842777;
+            }
+          }
+          .fil {
+            backdrop-filter: blur(1.1px);
+            background-color: #24842777;
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            z-index: 90;
+            animation: pulse 0.1s infinite;
+          }
+          .filtroPantalla {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            z-index: 70;
+
+            .filtro1 {
+              height: 100%;
+              width: 100%;
+              /* background-color: #0009; */
+              position: absolute;
+              top: 0;
+              left: 0;
+              z-index: 60;
+              
+              display: flex;
+              
+              & > * {
+                border: 0.1px solid #000;
+                height: 100%;
+                width: 5px;
+                /* background-color: red; */
+              }
+            }
+            .filtro2 {
+              height: 100%;
+              width: 100%;
+              /* background-color: #0009; */
+              position: absolute;
+              top: 0;
+              left: 0;
+              z-index: 60;
+              
+              display: flex;
+              flex-direction: column;
+              
+              & > * {
+                border: 0.1px solid #000;
+                height: 5%;
+                width: 100%;
+                /* background-color: red; */
+              }
+            }
+          }
+          
         }
       }
     }
